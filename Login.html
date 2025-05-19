@@ -1,0 +1,179 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogIn - Airspace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background-color: #4a6fa5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .form-container {
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 10px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        .form-group input:focus {
+            border-color: #4a6fa5;
+            outline: none;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4a6fa5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #3a5a8f;
+        }
+        
+        .links {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .links a {
+            color: #4a6fa5;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        
+        .links a:hover {
+            text-decoration: underline;
+        }
+        
+        .password-rules {
+            font-size: 15px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        input.error {
+            border-color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+   
+        </style>
+    </head>
+    <body>
+        <form id="LogInForm">
+            <h2>WELCOME BACK</h2>
+            <div>
+                <img src="11.jpeg" alt="11.jpeg" width="450px" margin="250" height="450" padding="250">
+            </div>
+
+            <div class="form-container">
+                <label for="UserName">UserName</label>
+            <input type="text" placeholder="Username" required id="Username" />
+                <label for="Password">Password</label>
+            <input type="Password" placeholder="Password" required id="Password" />
+            </div>
+            <button type="submit">LogIn</button>
+            &nbsp; <a href="register.html">Register</a>
+            &nbsp; <a href="Homepage.html">Homepage</a>
+            
+        </form>
+
+        <script>
+            document.getElementById("LogInForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+                var username = document.getElementById("Username").value;
+                var password = document.getElementById("Password").value;
+
+                var user = localStorage.getItem(username);
+                
+                if(user) {
+                    var parseduser = JSON.parse(user);
+                    if(parseduser.password === password) {
+                        localStorage.setItem("user", JSON.stringify(parseduser));
+                        window.location.href = "DashBoard1.html";
+                    } else {
+                        alert("Incorrect password");
+                    }
+                } else {
+                    alert("User not found");
+                }
+
+   
+            });
+        </script>
+    </body>
+</html>
+
+
